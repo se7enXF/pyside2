@@ -1,0 +1,7 @@
+# 简介
+Qt是一种强大的图形用户界面构造工具，如今它对于Python也有很好的接口支持，分别是PyQt和PySide。PyQt采用需购买版权的
+商业及GPL许可，而PySide采用无需购买版权的LGPL许可。PySide与PyQt有非常相容的API，因此无需版权的PySide更适合广大
+Python爱好者的学习。PySide2支持Qt5框架，兼容Python2.7以上版本及Python3.5 以上版本。本教程以PySide2为例，讲述如何从
+显示一个简单的hello world窗口到设置井然有序窗口布局。
+# 致谢
+感谢1ZLab对作者的支持！
