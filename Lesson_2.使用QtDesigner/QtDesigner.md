@@ -7,12 +7,15 @@
 ## 1.绘制窗口  
 使用过C++版本Qt的老玩家（用户）都知道，QtDesigner是一个非常好用的窗口绘制工具。我们使用PySide编程，难道还需要
 安装Qt？答案是不用。Qt团队在PySide的安装包里已经为我们准备好了QtDesigner。  
-找到你的python安装目录，打开\Python\Lib\site-packages\PySide2\designer.exe，这便是QtDesigner。为了打开方便，
-你可以设置快捷方式。作者使用PyCharm编程，直接将该程序添加到了工具里。
+找到你的python安装目录，打开Python\Lib\site-packages\PySide2\designer.exe，这便是QtDesigner。为了打开方便，
+你可以设置快捷方式。作者使用PyCharm编程，直接将该程序添加到了工具里。界面如下图：  
+![QtDesigner](../Addition/QtDesigner.png)
 ## 2.文件转换  
 打开QtDesigner后，新建一个空白的主窗口文件，按照Lesson_1显示的窗口的样子放置一个Label和一个pushButton，
-保存在当前工程目录下。（选择目录很重要，很多人
-找不到文件，原因就是自己保存时马马虎虎，还抱怨什么**电脑）然后打开命令行，切换工作路径到当前工程目录下，输入：  
+并设置好大小等属性，保存在当前工程目录下。（选择目录很重要，很多人
+找不到文件，原因就是自己保存时马马虎虎，还抱怨什么**电脑）  
+![Design](../Addition/Lesson2Design.png)
+然后打开命令行，切换工作路径到当前工程目录下，输入：  
 *pyside2-uic [你保存的文件名].ui > ui_mainwindow.py*  
 注意文件名，可以修改，但切记与后面主文件调用的文件名要一致。毕竟很多人写代码只用三个键。此时，你可以打开生
 成的py文件查看，很详细的记录了窗口的各种属性。  
