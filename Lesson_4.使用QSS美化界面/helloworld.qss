@@ -1,0 +1,16 @@
+QWidget#label
+{
+    color: #dc0700;
+    background: #46cbdc;
+}
+
+QPushButton:hover#pushButton
+{
+    background-color:#DCDCDC;
+    color: #484848;
+}
+
+QPushButton:pressed#pushButton
+{
+    background-color:deepskyblue;border-style: inset;
+}

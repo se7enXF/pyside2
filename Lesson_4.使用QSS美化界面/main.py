@@ -12,16 +12,19 @@ from PySide2.QtWidgets import QApplication, QMainWindow
 from ui_mainwindow import Ui_MainWindow
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)
+        self.setupUi(self)
         self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир", "Hello world"]
-        self.ui.pushButton.clicked.connect(self.magic)
+        self.pushButton.clicked.connect(self.magic)
+
+        # 加载QSS
+        with open("helloworld.qss", "r") as qs:
+            self.setStyleSheet(qs.read())
 
     def magic(self):
-        self.ui.label.setText(random.choice(self.hello))
+        self.label.setText(random.choice(self.hello))
 
 
 if __name__ == '__main__':

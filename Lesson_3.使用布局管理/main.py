@@ -3,7 +3,7 @@
 # Author:   se7enXF
 # Github:   se7enXF
 # Date:     2019/2/19
-# Note:     使用QtDesigner高效绘制界面，并使用PySide调用
+# Note:     使用布局。此程序在之前2讲已有注释，此处为简洁，不再注释
 
 import sys
 import random
@@ -12,26 +12,14 @@ from PySide2.QtWidgets import QApplication, QMainWindow
 from ui_mainwindow import Ui_MainWindow
 
 
-# 主窗体类
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
-        # 定义字符
         self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир", "Hello world"]
-
-        # 添加槽链接
         self.pushButton.clicked.connect(self.magic)
-        '''
-        关于槽链接，在PySide中调用的格式是：
-        发送者.信号.connect(槽函数)
-        
-        Qt是面向对象的程序设计，只有某个动作才会触发某个效果。使用槽链接的方式，可以实现复杂的操作。
-        使用槽链接时，一定要在官方文档查找发送者有哪些信号，例如pushButton有clicked信号可以激活槽链接。
-        '''
 
     def magic(self):
-        # 随机选取
         self.label.setText(random.choice(self.hello))
 
 
