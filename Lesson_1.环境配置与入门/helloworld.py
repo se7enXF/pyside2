@@ -20,7 +20,7 @@ class MainWindow(QtWidgets.QWidget):
         self.setWindowTitle("hello world")
 
         # 定义不同语言
-        self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир", "Hello world"]
+        self.hello = ["Hallo Welt", "你好世界！", "Hola Mundo", "Привет мир", "Hello world"]
 
         # 定义按钮
         self.button = QtWidgets.QPushButton("Click me!")
