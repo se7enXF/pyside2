@@ -9,8 +9,7 @@
 关于Python的安装请自行学习，这里不再累述。  
 安装PySide2的PyPI，命令行:  
 ```bash
-pip install --index-url=http://download.qt.io/snapshots/ci/pyside/5.11/
-latest/ pyside2 --trusted-host download.qt.io*  
+pip install --index-url=http://download.qt.io/snapshots/ci/pyside/5.11/latest/ pyside2 --trusted-host download.qt.io
 ```   
 ## Hello world!  
 万程开头helloworld!作者编写的的这个helloworld.py是根据官网教程改编的，里面也写了详细的注释。
