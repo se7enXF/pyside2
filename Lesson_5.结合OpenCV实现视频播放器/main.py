@@ -162,7 +162,7 @@ class VdoConfig:
         # 获取视频当前帧所在的帧数
         self.current_f = self.cap.get(cv2.CAP_PROP_POS_FRAMES)
         # 设置定时器周期，单位毫秒
-        self.v_timer.start(self.fps)
+        self.v_timer.start(int(1000/self.fps))
         print("FPS:".format(self.fps))
 
         window.pushButton.setEnabled(True)
@@ -221,19 +221,19 @@ class VdoConfig:
             self.v_timer.timeout.disconnect(self.show_pic)
             # 连接槽连接
             self.v_timer.timeout.connect(self.show_pic_back)
-            self.v_timer.start(self.fps / 2)
+            self.v_timer.start(int(1000/self.fps)/2)
         else:
             self.v_timer.timeout.disconnect(self.show_pic_back)
             self.v_timer.timeout.connect(self.show_pic)
-            self.v_timer.start(self.fps)
+            self.v_timer.start(int(1000/self.fps))
 
     # 快进
     def next_img(self, t):
         window.pushButton.setText("播放")
         if t:
-            self.v_timer.start(self.fps/2)
+            self.v_timer.start(int(1000/self.fps)/2)
         else:
-            self.v_timer.start(self.fps)
+            self.v_timer.start(int(1000/self.fps))
 
     # 暂停播放
     def go_pause(self):
@@ -241,7 +241,7 @@ class VdoConfig:
             self.v_timer.stop()
             window.pushButton.setText("暂停")
         elif window.pushButton.text() == "暂停":
-            self.v_timer.start(self.fps)
+            self.v_timer.start(int(1000/self.fps))
             window.pushButton.setText("播放")
 
     def calculate_time(self, c_f, t_f, fps):
