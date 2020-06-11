@@ -1,5 +1,4 @@
-# 环境配置与入门  
-## 概要  
+# 环境配置与入门   
 第一课，讲述使用Python和PySide2的软件开发环境的配置和显示简单的helloworld界面。
 ## 软件开发环境  
 * Windows10(其他操作系统亦可)
@@ -17,5 +16,6 @@ pip install --index-url=http://download.qt.io/snapshots/ci/pyside/5.11/latest/ p
 因此，在下一讲中，会介绍一种结合QtDesigner的用户界面绘制方法，能让我们更高效的实现QtUI。
 当你配置好环境，可以直接运行helloworld.py，如果成功运行并显示如下窗口，那么恭喜你入坑！  
 ![hello_world](../Addition/Lesson1.png)  
+* [第二课](../Lesson_2.使用QtDesigner/README.md)  
 ## 参考文档   
 [PySide官方文档 Qt for Python](https://doc-snapshots.qt.io/qtforpython/index.html )
