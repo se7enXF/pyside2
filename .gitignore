@@ -2,3 +2,4 @@
 !.gitignore
 /Lesson_5.结合OpenCV实现视频播放器/*.png
 *.mp4
+__pycache__
