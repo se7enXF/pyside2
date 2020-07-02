@@ -17,7 +17,6 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
 
-        self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир", "Hello world"]
         self.resize(1024, 768)
         self.setWindowTitle('Main window struct')
 
@@ -77,16 +76,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.menu_setup = QtWidgets.QMenu('这是菜单栏中的一个菜单')
         self.menuBar().addMenu(self.menu_setup)
         self.menuBar().setStyleSheet('*{background: Aqua; color: Black}')
-
-
-        # 设置通过ObjectName来连接槽函数
-        QtCore.QMetaObject.connectSlotsByName(self)
-
-    # 指定下面的函数是槽函数
-    @QtCore.Slot()
-    # on_ObjectName_信号 来定义槽函数名
-    def on_push_word_clicked(self):
-        self.show_word.setText(random.choice(self.hello))
 
 
 if __name__ == '__main__':
