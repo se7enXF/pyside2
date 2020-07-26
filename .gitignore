@@ -3,3 +3,4 @@
 /Lesson_5.结合OpenCV实现视频播放器/*.png
 *.mp4
 __pycache__
+!Lesson_10.AutoSizeImage/icon.png

@@ -4,18 +4,19 @@
 @E-Mail: FeiXue@nuaa.edu.cn
 @File: EzQtTools.py
 @Time: 2020/7/3 12:37
-@Introduction: 快捷生成基础窗口和添加布局控件工具
+@Introduction: 简便的Qt工具
 """
 
 
-from PySide2 import QtWidgets, QtCore
+from PySide2 import QtWidgets, QtCore, QtGui
 __NAME__ = 'EzQtTools'
 
 
+# 快捷生成基础窗口和添加布局控件工具
 class EzMainWindow(QtWidgets.QMainWindow):
 
     def __init__(self,
-                 ico=None,
+                 icon=None,
                  title=__NAME__,
                  size=(960, 540),
                  fixed=False,
@@ -27,7 +28,7 @@ class EzMainWindow(QtWidgets.QMainWindow):
                  default_layout_space=9):
         """
         直接生成基础的主窗口，并设置默认布局参数
-        :param ico: 窗口图标URL
+        :param icon: 窗口图标URL
         :param title: 窗口标题
         :param size: 窗口大小（w，h）
         :param fixed: 窗口大小不可改变？
@@ -45,8 +46,9 @@ class EzMainWindow(QtWidgets.QMainWindow):
         self.default_layout_space = default_layout_space
 
         # -- 初始化默认参数 -- #
-        if ico and QtCore.QFile.exists(ico):
-            self.setWindowIcon(ico)
+        if icon and QtCore.QFile.exists(icon):
+            icon = QtGui.QIcon(icon)
+            self.setWindowIcon(icon)
         self.setWindowTitle(title)
         if fixed:
             self.setFixedSize(size[0], size[1])
@@ -67,7 +69,12 @@ class EzMainWindow(QtWidgets.QMainWindow):
         # -- 在此函数中设置自己的布局控件 -- #
         self.__init__widget()
 
-    def add_layout_widget(self, parent, widget, layout=None, stretch=None, margins=None, space=None):
+    def add_layout_widget(self, parent: QtWidgets.QWidget,
+                          widget: QtWidgets.QWidget,
+                          layout: QtWidgets.QLayout=None,
+                          stretch: int=None,
+                          margins: int=None,
+                          space: int=None) -> QtWidgets.QWidget:
         """
         给parent控件上添加widget。当parent首次添加widget，需要指定其布局格式。
         :param parent: 父控件
@@ -115,7 +122,7 @@ class EzMainWindow(QtWidgets.QMainWindow):
         """
         self.statusBar().showMessage(words)
 
-    def open_file_dialog(self, default_dir='.', types: list = None):
+    def open_file_dialog(self, default_dir='.', types: list = None) -> str:
         """
         打开文件或文件夹路径并返回
         :param default_dir: 打开文件夹对话框默认的目录
@@ -155,3 +162,24 @@ class EzMainWindow(QtWidgets.QMainWindow):
             label2 = self.add_layout_widget(widget2, QtWidgets.QLabel())
         """
         pass
+
+
+# 自适应窗口变化的显示图像的标签
+class AutoSizeLabel(QtWidgets.QWidget):
+
+    def __init__(self, parent=None):
+        super(AutoSizeLabel, self).__init__(parent=parent)
+
+        self.image = QtWidgets.QLabel(self)
+        self.image.move(0, 0)
+        self.image.setScaledContents(True)
+        self.resize(parent.size())
+
+    def SetPixmap(self, pix_img):
+        self.image.setPixmap(pix_img)
+
+    def resizeEvent(self, *args, **kwargs):
+        self.image.resize(self.size())
+
+    def Clear(self):
+        self.image.clear()
