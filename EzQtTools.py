@@ -71,10 +71,11 @@ class EzMainWindow(QtWidgets.QMainWindow):
 
     def add_layout_widget(self, parent: QtWidgets.QWidget,
                           widget: QtWidgets.QWidget,
-                          layout: QtWidgets.QLayout=None,
-                          stretch: int=None,
-                          margins: int=None,
-                          space: int=None) -> QtWidgets.QWidget:
+                          layout: QtWidgets.QLayout = None,
+                          stretch: int = None,
+                          margins: [int, list] = None,
+                          space: int = None
+                          ) -> QtWidgets.QWidget:
         """
         给parent控件上添加widget。当parent首次添加widget，需要指定其布局格式。
         :param parent: 父控件
@@ -91,7 +92,7 @@ class EzMainWindow(QtWidgets.QMainWindow):
             stretch = self.default_layout_stretch
 
         if current_layout:
-            current_layout.addWidget(widget, stretch=stretch)
+            current_layout.addWidget(widget)
         else:
             if not layout:
                 if self.default_layout == 'H':

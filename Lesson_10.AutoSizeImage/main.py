@@ -154,7 +154,6 @@ class ImageLabel(AutoSizeLabel):
         self.contextMenu.sizeHint()
 
     def contextMenuEvent(self, *args, **kwargs):
-        print(QCursor.pos(), self.contextMenu.size())
         self.contextMenu.popup(QCursor.pos())
 
     def menuSlot(self, act):

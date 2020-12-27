@@ -28,5 +28,7 @@ Lesson5 的布局中直接放置了一个label，虽然设置了属性 scaledCon
 
 ## 写在最后  
 
-TODO
+终于写完毕业论文了，可以好好研究以下Qt的各种问题。已经解决了多媒体播放的问题，请看
+下一讲([第十一课](../Lesson_11.MultimediaPlayer/readme.md))。更新时间为
+2020年12月27日。
  
