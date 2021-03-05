@@ -52,7 +52,7 @@ class MainWindow(EzMainWindow):
         self.progress_bar.setEnabled(False)
         # volume control
         self.volume = self.add_layout_widget(self.progress, QtWidgets.QSlider(QtCore.Qt.Horizontal),
-                                                   QtWidgets.QHBoxLayout())
+                                             QtWidgets.QHBoxLayout())
         self.volume.setFixedWidth(100)
         self.volume.setMinimum(0)
         self.volume.setMaximum(100)

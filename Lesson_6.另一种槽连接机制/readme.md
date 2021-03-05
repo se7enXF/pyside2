@@ -4,8 +4,8 @@ PyQt5或者PySide2中提供了两种槽连接方式，它们各有优点。
 
 ### 1. 通过connect方式连接  
 
-* 优点：槽函数复用，可以传参    
-* 缺点：代码繁琐，冗余   
+* 优点：代码和逻辑关联紧密，槽函数可以复用   
+* 缺点：代码繁琐（每个信号连接都需要使用connect语句）  
 * 示例:  
 
 ```python
@@ -15,30 +15,38 @@ def pushButton_slot_fun(self, x):
 
 # 定义控件
 push_word = QtWidgets.QPushButton('Random word')
-# 槽连接
-push_word.clicked.connect(lambda: pushButton_slot_fun('参数'))  
+push_word2 = QtWidgets.QPushButton('Random word')
+# 槽连接，使用lambda表达式传参
+push_word.clicked.connect(lambda: pushButton_slot_fun('参数1'))  
+push_word2.clicked.connect(lambda: pushButton_slot_fun('参数2'))  
 ```
  
 ### 2. 通过connectSlotsByName方式连接  
   
-* 优点：代码整洁    
-* 缺点：不能传参（可能是我不会，网友有会的可以提Issue）   
+* 优点：代码整洁美观    
+* 缺点：槽函数唯一，只能传信号自带参数 [Issue](https://github.com/se7enXF/pyside2/issues/2#issuecomment-664003084)  
 * 示例: 
 
 ```python
 # 定义控件
 push_word = QtWidgets.QPushButton('Random word')
+push_word2 = QtWidgets.QPushButton('Random word')
 # 必须设置控件的名称，即ObjectName
 push_word.setObjectName('push_word')
+push_word2.setObjectName('push_word2')
 
 # parent为发出槽信号的控件的parent，如是当前窗口的控件发出信号，这里填self
 # 这句话必须在所有setObjectName之后才会生效
 QtCore.QMetaObject.connectSlotsByName(parent)
 
-# 用@QtCore.Slot()声明下面是槽函数
+# 使用@QtCore.Slot()修饰下面的函数，说明该函数是槽函数
 @QtCore.Slot()
 # 槽函数名的格式为：on_[ObjectName]_[信号]
 def on_push_word_clicked():
+    pass
+
+@QtCore.Slot()
+def on_push_word2_clicked():
     pass
 ```  
 
