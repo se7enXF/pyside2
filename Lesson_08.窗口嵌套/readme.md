@@ -23,4 +23,4 @@ Qt 中几乎所有控件都是继承于 QtWidgets，所以它们之间可以相�
 `TODO: 此处的信号连接使用connectSlotsByName无效？`    
 4. 信号的槽函数参数和发出新信号的类型要一致  
 
-* 下一讲([第九课](../Lesson_9.EzQtTools/readme.md))会介绍我自己定义的Qt工具，让控件设置不再繁琐。
+* 下一讲([第九课](../Lesson_09.EzQtTools/readme.md))会介绍我自己定义的Qt工具，让控件设置不再繁琐。

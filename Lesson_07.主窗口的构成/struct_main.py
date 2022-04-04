@@ -2,14 +2,13 @@
 """
 @Author: Fei Xue
 @E-Mail: FeiXue@nuaa.edu.cn
-@File: struct.py.py
+@File: struct_main.py
 @Time: 2020/6/11 16:58
 @Introduction: 
 """
 
 
 import sys
-import random
 from PySide2 import QtWidgets, QtCore
 
 

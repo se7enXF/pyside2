@@ -47,7 +47,7 @@ class MainWindow(EzMainWindow):
         self.goto = self.add_layout_widget(self.title_area, QtWidgets.QPushButton('打开'))
 
         # 给显示区域添加浏览控件
-        self.web_browser = self.add_layout_widget(self.pages_area, QWebEngineView())
+        self.web_browser = self.add_layout_widget(self.pages_area, QWebEngineView(), stretch=1)
 
         # 定义槽函数
         def open_home():

@@ -10,8 +10,8 @@ import os
 from glob import glob
 from PySide2 import QtWidgets
 from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox
-from PySide2.QtCore import QDir, QTimer
-from PySide2.QtGui import QPixmap,QImage
+from PySide2.QtCore import QDir, QTimer, QSize
+from PySide2.QtGui import QPixmap, QImage
 from ui_mainwindow import Ui_MainWindow
 import cv2
 
@@ -99,8 +99,8 @@ def open_image():
                                               "图片文件(*.jpg *.png *.bmp);;所有文件(*)")
     # 判断是否正确打开文件
     if not file_dir:
-        QMessageBox.warning(window.pushButton, "警告", "文件错误或打开文件失败！", QMessageBox.Yes)
-        return
+        QMessageBox.warning(window.pushButton, "警告", "文件不存在或打开文件失败！", QMessageBox.Yes)
+        return None, None
     print("读入文件成功")
     # 分离路径和文件名
     (dir_name, full_file_name) = os.path.split(file_dir)
@@ -117,6 +117,8 @@ def open_image():
 def direct_show_image(img):
     # 使用Qt自带的图像格式读取
     pixmap = QPixmap(img)
+    # 缩放以适应窗口大小，由于label.size()包含了显示区域和边界，因此要减去两边各1像素的边界
+    pixmap = pixmap.scaled(window.label.__size() - QSize(2, 2))
     # 在label上显示图像
     window.label.setPixmap(pixmap)
     # 状态栏显示
@@ -130,8 +132,8 @@ def open_video():
                                               "视频文件(*.mp4 *.avi );;所有文件(*)")
     # 判断是否正确打开文件
     if not file_dir:
-        QMessageBox.warning(window.pushButton, "警告", "文件错误或打开文件失败！", QMessageBox.Yes)
-        return
+        QMessageBox.warning(window.pushButton, "警告", "文件不存在或打开文件失败！", QMessageBox.Yes)
+        return None
     print("读入文件成功")
     # 返回视频路径
     return file_dir

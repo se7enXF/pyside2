@@ -16,16 +16,17 @@ __NAME__ = 'EzQtTools'
 class EzMainWindow(QtWidgets.QMainWindow):
 
     def __init__(self,
-                 icon=None,
-                 title=__NAME__,
-                 size=(960, 540),
-                 fixed=False,
-                 max_window=False,
-                 show_statusbar=False,
-                 default_layout='V',
-                 default_layout_stretch=0,
-                 default_layout_margins=9,
-                 default_layout_space=9):
+                 icon: str = None,
+                 title: str = __NAME__,
+                 size: tuple = (960, 540),
+                 fixed: bool = False,
+                 max_window: bool = False,
+                 show_statusbar: bool = False,
+                 default_layout: str = 'V',
+                 default_layout_stretch: int = 0,
+                 default_layout_margins: int = 9,
+                 default_layout_space: int = 9
+                 ):
         """
         直接生成基础的主窗口，并设置默认布局参数
         :param icon: 窗口图标URL

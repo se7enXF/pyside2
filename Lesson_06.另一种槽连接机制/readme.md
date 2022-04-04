@@ -59,4 +59,4 @@ def on_push_word2_clicked():
 如果上述方法不通，我还会打开[Qt文档](https://doc.qt.io/qtforpython/modules.html)
 去查看控件的方法，函数，信号，例子。
 * 之后的代码将不再使用两步走的方案，我会提供一个快捷方便的函数来构建布局。
-* 下一节([第七课](../Lesson_7.主窗口的构成/readme.md))会介绍Qt主窗口的构成。
+* 下一节([第七课](../Lesson_07.主窗口的构成/readme.md))会介绍Qt主窗口的构成。
