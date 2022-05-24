@@ -118,7 +118,7 @@ def direct_show_image(img):
     # 使用Qt自带的图像格式读取
     pixmap = QPixmap(img)
     # 缩放以适应窗口大小，由于label.size()包含了显示区域和边界，因此要减去两边各1像素的边界
-    pixmap = pixmap.scaled(window.label.__size() - QSize(2, 2))
+    pixmap = pixmap.scaled(window.label.size() - QSize(2, 2))
     # 在label上显示图像
     window.label.setPixmap(pixmap)
     # 状态栏显示
